@@ -1,4 +1,4 @@
-# My Portfolio
+# Moje Portfolio
 ### Moje projekty
 ##### W Unity/C#
 
@@ -71,6 +71,15 @@
     }
 
     ```
+2. 3D Trail Renderer
+   - 3D trail renderer, polegający na edycji meschy, generuje trail który interpretuje kolizje, kod w miarę efektywny (przemyślany na mobilki), kod bez komentarzy
+   - [GitLab](https://gitlab.com/andrzejszablewski13/gra/-/blob/master/Giereczka/Assets/Scripts/Car/Trail3D.cs)
+3. AI On State
+   -nieudane ai na stetach (złe podejście do problemu- sterowaniem pojazdu na wheel colitherach) ale zrobione zgodnie z definicją
+   -[GitLab](https://gitlab.com/andrzejszablewski13/gra/-/tree/master/Giereczka/Assets/Scripts/AIOnState)
+4. Lobby na photonie
+   - lobby do gry na photonie, pokoje mozliwe do tworzenia, maks 4 gracze, z opcja tworzenia nicku i wyboru postaci, kod bez komentarzy
+   - [GitLab](https://gitlab.com/andrzejszablewski13/gra/-/tree/master/Giereczka/Assets/Scripts/Lobby)
     
 ##### W pythonie
 Do pokazania na razie brak
@@ -86,3 +95,8 @@ Do pokazania na razie brak
 3. Szachy
    - Szachy w c++ z pomocą SFML. Jeden z mych pierwszych projektów, cały strukturalny
    - [GitLab](https://gitlab.com/andrzejszablewski13/console-programs/-/tree/master/szachy)
+4. ML-agents
+   - moje próby z użyciem uczenia maszynowego
+   - [GitLab](https://gitlab.com/andrzejszablewski13/my-own-mlagents-try/-/tree/master/Project/Assets/ML-Agents/OwnTries)
+   - projekt prowadzi do kilku zapisanych folderów z projektami
+     - RollerBall to jest startowy tutorialowy kod z tutoriali twurców
