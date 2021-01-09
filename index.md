@@ -1,11 +1,12 @@
 # My Prtfolio
 ###Moje projekty
-###### W Unity/C#
+##### W Unity/C#
 1. Line renderer na canvas (unity)
    -Line renderer który działa na canvasie, zawiera kilka podsatawowych opcji, krótki i w miarę wydajny kod
    -Kod:
    
-    ```unity
+    ```c#
+    
     ﻿using System.Collections.Generic;
     using UnityEngine;
     using UnityEngine.UI;
@@ -69,9 +70,9 @@
 
     ```
     
-###### W pythonie
+##### W pythonie
 Do pokazania na razie brak
-####### C++
+##### C++
 1. Równanie do liczenia miejsc zerowych funkji. 
    -Zczytuję funkcję z jednego stringa, objektowe. Wymaga rozbudowania (nie uwwzględnia wszystkich możliwości)
    -[GitLab](https://gitlab.com/andrzejszablewski13/console-programs/-/tree/master/r%C3%B3wnanie)
