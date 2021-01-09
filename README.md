@@ -1,12 +1,12 @@
 # Portfolio test left part
 # test part2
 Minimal theme
-# Logo
-Minimal is a theme for GitHub Pages.
+### Logo
+*Minimal is a theme for GitHub Pages.*
 
 <h1>View the Project on GitHub</h1>
 pages-themes/minimal
-
+'''
 Download
 ZIP File
 Download
@@ -14,13 +14,13 @@ TAR Ball
 View On
 GitHub
 Text can be bold, italic, or strikethrough.
-
+'''
 Link to another page.
-
+"
 There should be whitespace between paragraphs.
 
 There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
-
+"
 Header 1
 This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
 
