@@ -1,8 +1,11 @@
-# My Prtfolio
+# My Portfolio
 ### Moje projekty
 ##### W Unity/C#
+
 1. Line renderer na canvas (unity)
    -Line renderer który działa na canvasie, zawiera kilka podsatawowych opcji, krótki i w miarę wydajny kod
+   -[GitLab](https://gitlab.com/andrzejszablewski13/doomwave/-/blob/master/DoomW/DoomW/Assets/Scripts/Canvas/LineRendererHUD.cs)
+   
    -Kod:
    
     ```c#
@@ -76,9 +79,11 @@ Do pokazania na razie brak
 1. Równanie do liczenia miejsc zerowych funkji. 
    -Zczytuję funkcję z jednego stringa, objektowe. Wymaga rozbudowania (nie uwwzględnia wszystkich możliwości)
    -[GitLab](https://gitlab.com/andrzejszablewski13/console-programs/-/tree/master/r%C3%B3wnanie)
+   
 2. Generator wykresu 
    -Po wpisaniu funkcji generuje wykres funkcji (mało dokładnie, nie uwzględnia wielu elementów).
    -[GitLab](https://gitlab.com/andrzejszablewski13/console-programs/-/tree/master/wykres)
+   
 3. Szachy
    - Szachy w c++ z pomocą SFML. Jeden z mych pierwszych projektów, cały strukturalny
    - [GitLab](https://gitlab.com/andrzejszablewski13/console-programs/-/tree/master/szachy)
