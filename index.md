@@ -132,11 +132,12 @@
    - moje próby z użyciem uczenia maszynowego
    - [GitLab](https://gitlab.com/andrzejszablewski13/my-own-mlagents-try/-/tree/master/Project/Assets/ML-Agents/OwnTries)
    - projekt prowadzi do kilku zapisanych folderów z projektami
-     - RollerBall to jest startowy tutorialowy kod z tutoriali twórców.
-     - RLWitchCars to jest mój pierwszy włąsny projekt z połaczeniem pojazdów na wheel colitherach. AI w miarę działa ale nie dodałem detekcji czy reagowanie na wyjazd poza platformę a tylko dojazd do celu (losowo wybranego kwadratu)
-     -Kółko i krzyżyk to kolejny w maire udany projekt ai do gry w kółko i krzyzyk. Jest ono w miare działajace (choc czasem lubi sie popsuc i wymagac ponownego przetrenowania na tym samym kodzie), kod niezaladny i posiadajacy wiele miejsc do usprawnien (zwlaszcza od strony mastera do gry)
-     -Reversi ostatni projekt nieudany z powodu zbyt duzego rozmiaru w porówaniu do posiadanego sprzetu
-     -config to folder z plikami konfiguracyjnymi (.yaml) i gotowymi wytrenowanymi AI
+   * RollerBall to jest startowy tutorialowy kod z tutoriali twórców.
+   * RLWitchCars to jest mój pierwszy włąsny projekt z połaczeniem pojazdów na wheel colitherach. AI w miarę działa ale nie dodałem detekcji czy reagowanie na wyjazd poza platformę a tylko dojazd do celu (losowo wybranego kwadratu)
+   * Kółko i krzyżyk to kolejny w maire udany projekt ai do gry w kółko i krzyzyk. Jest ono w miare działajace (choc czasem lubi sie popsuc i wymagac ponownego przetrenowania na tym samym kodzie), kod niezaladny i posiadajacy wiele miejsc do usprawnien (zwlaszcza od strony mastera do gry)
+   * Reversi ostatni projekt nieudany z powodu zbyt duzego rozmiaru w porówaniu do posiadanego sprzetu
+   * config to folder z plikami konfiguracyjnymi (.yaml) i gotowymi wytrenowanymi AI
+
 7. Pierwsza (w miare skonczona i mozliwa do pokazania) gra TRacer
    - gra o pojazdach i zabijaniu przeciwników własnym trailem (jak w tronie)
    - [GitLab](https://gitlab.com/andrzejszablewski13/gra)
