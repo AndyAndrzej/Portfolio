@@ -71,15 +71,79 @@
     }
 
     ```
-2. 3D Trail Renderer
+2. Camera Synchro
+   - scrypt do sunchronizacjo kamer służących np. za lustro bądz portal z kamerą gracza, kod bez komentarzy, operuje na fizycznych wlasnosciach kamery, mniej na jej poruszaniu
+   - [GitLab](https://gitlab.com/andrzejszablewski13/portal-prototype/-/blob/master/PortalExperimental/Assets/ElementsForPortalsBase/CameraSynchro.cs)
+   - Kod:
+   
+   ```c#
+   using System.Collections;
+   using System.Collections.Generic;
+   using UnityEngine;
+
+   namespace Portal
+   {
+    public class CameraSynchro : MonoBehaviour
+    {
+        // Start is called before the first frame update
+        private Camera _cameraPortal1, _cameraPortal2;
+        private GameObject _pseudoMainCamera1, _pseudoMainCamera2;
+        private float _distanceZ, _distanceX, _distanceY;
+        private float _correctPrecision = 0.1f;
+        void Start()
+        {
+            _cameraPortal1 = PortalSingleton.Singleton.Portal1.GetComponentInChildren<Camera>();
+            _cameraPortal2 = PortalSingleton.Singleton.Portal2.GetComponentInChildren<Camera>();
+            _pseudoMainCamera1 = PortalSingleton.Singleton.Portal1.GetComponentInChildren<PseudoMainCamera>().gameObject;
+            _pseudoMainCamera2 = PortalSingleton.Singleton.Portal2.GetComponentInChildren<PseudoMainCamera>().gameObject;
+        }
+
+        // Update is called once per frame
+        void FixedUpdate()
+        {
+            SetCameraPosition(_cameraPortal2, PortalSingleton.Singleton.Portal1, _pseudoMainCamera2);
+            SetCameraPosition(_cameraPortal1, PortalSingleton.Singleton.Portal2, _pseudoMainCamera1);
+        }
+        private void SetCameraPosition(Camera _cameraToSet,GameObject _portal,GameObject _pseudoMainCamera)
+        {
+            _distanceX = PortalSingleton.Singleton.mainCamera.transform.position.x-_portal.transform.position.x;
+            _distanceY = PortalSingleton.Singleton.mainCamera.transform.position.y-_portal.transform.position.y;
+            _distanceZ = PortalSingleton.Singleton.mainCamera.transform.position.z- _portal.transform.position.z;
+            _cameraToSet.transform.localPosition = new Vector3(_cameraToSet.transform.localPosition.x, _cameraToSet.transform.localPosition.y, _distanceZ);
+            _pseudoMainCamera.transform.localPosition = new Vector3(_distanceX, _distanceY, _pseudoMainCamera.transform.localPosition.z);
+            _pseudoMainCamera.transform.localEulerAngles = PortalSingleton.Singleton.mainCamera.transform.eulerAngles;
+            _cameraToSet.nearClipPlane =Mathf.Abs( _distanceZ)+ _correctPrecision;
+        }
+    }
+   }
+
+   ```
+
+3. 3D Trail Renderer
    - 3D trail renderer, polegający na edycji meschy, generuje trail który interpretuje kolizje, kod w miarę efektywny (przemyślany na mobilki), kod bez komentarzy
    - [GitLab](https://gitlab.com/andrzejszablewski13/gra/-/blob/master/Giereczka/Assets/Scripts/Car/Trail3D.cs)
-3. AI On State
+4. AI On State
    -nieudane ai na stetach (złe podejście do problemu- sterowaniem pojazdu na wheel colitherach) ale zrobione zgodnie z definicją
    -[GitLab](https://gitlab.com/andrzejszablewski13/gra/-/tree/master/Giereczka/Assets/Scripts/AIOnState)
-4. Lobby na photonie
+5. Lobby na photonie
    - lobby do gry na photonie, pokoje mozliwe do tworzenia, maks 4 gracze, z opcja tworzenia nicku i wyboru postaci, kod bez komentarzy
    - [GitLab](https://gitlab.com/andrzejszablewski13/gra/-/tree/master/Giereczka/Assets/Scripts/Lobby)
+6. ML-agents
+   - moje próby z użyciem uczenia maszynowego
+   - [GitLab](https://gitlab.com/andrzejszablewski13/my-own-mlagents-try/-/tree/master/Project/Assets/ML-Agents/OwnTries)
+   - projekt prowadzi do kilku zapisanych folderów z projektami
+     - RollerBall to jest startowy tutorialowy kod z tutoriali twórców.
+     - RLWitchCars to jest mój pierwszy włąsny projekt z połaczeniem pojazdów na wheel colitherach. AI w miarę działa ale nie dodałem detekcji czy reagowanie na wyjazd poza platformę a tylko dojazd do celu (losowo wybranego kwadratu)
+     -Kółko i krzyżyk to kolejny w maire udany projekt ai do gry w kółko i krzyzyk. Jest ono w miare działajace (choc czasem lubi sie popsuc i wymagac ponownego przetrenowania na tym samym kodzie), kod niezaladny i posiadajacy wiele miejsc do usprawnien (zwlaszcza od strony mastera do gry)
+     -Reversi ostatni projekt nieudany z powodu zbyt duzego rozmiaru w porówaniu do posiadanego sprzetu
+     -config to folder z plikami konfiguracyjnymi (.yaml) i gotowymi wytrenowanymi AI
+7. Pierwsza (w miare skonczona i mozliwa do pokazania) gra TRacer
+   - gra o pojazdach i zabijaniu przeciwników własnym trailem (jak w tronie)
+   - [GitLab](https://gitlab.com/andrzejszablewski13/gra)
+8. DoomWave
+   - obecnie rozwijana gra, typu rogue-like+doom z opcja tworzenia wlasnych broni z modulów
+   - [GitLab](https://gitlab.com/andrzejszablewski13/doomwave)
+
     
 ##### W pythonie
 Do pokazania na razie brak
@@ -95,8 +159,3 @@ Do pokazania na razie brak
 3. Szachy
    - Szachy w c++ z pomocą SFML. Jeden z mych pierwszych projektów, cały strukturalny
    - [GitLab](https://gitlab.com/andrzejszablewski13/console-programs/-/tree/master/szachy)
-4. ML-agents
-   - moje próby z użyciem uczenia maszynowego
-   - [GitLab](https://gitlab.com/andrzejszablewski13/my-own-mlagents-try/-/tree/master/Project/Assets/ML-Agents/OwnTries)
-   - projekt prowadzi do kilku zapisanych folderów z projektami
-     - RollerBall to jest startowy tutorialowy kod z tutoriali twurców
