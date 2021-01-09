@@ -1,9 +1,9 @@
 # Portfolio
 Minimal theme
-Logo
+# Logo
 Minimal is a theme for GitHub Pages.
 
-View the Project on GitHub
+<h1>View the Project on GitHub</h1>
 pages-themes/minimal
 
 Download
