@@ -149,7 +149,7 @@
 ##### W pythonie
 Do pokazania na razie brak
 ##### C++
-1. Równanie do liczenia miejsc zerowych funkji. 
+1. Funkcja do wyliczania y z równania/funkcji. 
    - Zczytuję funkcję z jednego stringa, objektowe. Wymaga rozbudowania (nie uwwzględnia wszystkich możliwości)
    - [GitLab](https://gitlab.com/andrzejszablewski13/console-programs/-/tree/master/r%C3%B3wnanie)
    
