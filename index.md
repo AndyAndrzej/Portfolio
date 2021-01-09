@@ -154,7 +154,7 @@ Do pokazania na razie brak
    - [GitLab](https://gitlab.com/andrzejszablewski13/console-programs/-/tree/master/r%C3%B3wnanie)
    
 2. Generator wykresu 
-   - Po wpisaniu funkcji generuje wykres funkcji (mało dokładnie, nie uwzględnia wielu elementów).
+   - Po wpisaniu funkcji generuje wykres funkcji (mało dokładnie, nie uwzględnia wielu elementów), czytanie równania z powyższego.
    - [GitLab](https://gitlab.com/andrzejszablewski13/console-programs/-/tree/master/wykres)
    
 3. Szachy
