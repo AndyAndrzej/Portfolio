@@ -6,6 +6,7 @@ Minimal theme
 
 <h1>View the Project on GitHub</h1>
 pages-themes/minimal
+
 ```
 Download
 ZIP File
@@ -15,6 +16,7 @@ View On
 GitHub
 Text can be bold, italic, or strikethrough.
 ```
+
 Link to another page.
 "
 There should be whitespace between paragraphs.
