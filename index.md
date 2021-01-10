@@ -78,51 +78,47 @@ Obecnie student 2 roku na Collegium Da Vinci Na kierunku Inforamtyka Spec. Proje
 
     ```
 2. Camera Synchro
-   - scrypt do sunchronizacjo kamer służących np. za lustro bądz portal z kamerą gracza, kod bez komentarzy, operuje na fizycznych wlasnosciach kamery, mniej na jej poruszaniu
+   - scrypt do sunchronizacjo kamer służących np. za lustro bądz portal z kamerą gracza, kod bez komentarzy, operuje na fizycznych wlasnosciach kamery, mniej na jej poruszaniu,       (nieco zabagowana przy małych odległościach)
    - [GitLab](https://gitlab.com/andrzejszablewski13/portal-prototype/-/blob/master/PortalExperimental/Assets/ElementsForPortalsBase/CameraSynchro.cs)
-   - Kod:
+   - Kod (z komentarzami):
    
    ```c#
    using System.Collections;
    using System.Collections.Generic;
    using UnityEngine;
+   using UnityEngine.UIElements;
 
    namespace Portal
    {
-    public class CameraSynchro : MonoBehaviour
+    public class MovingLensThanFerment : MonoBehaviour
     {
-        // Start is called before the first frame update
-        private Camera _cameraPortal1, _cameraPortal2;
-        private GameObject _pseudoMainCamera1, _pseudoMainCamera2;
-        private float _distanceZ, _distanceX, _distanceY;
-        private float _correctPrecision = 0.1f;
-        void Start()
-        {
-            _cameraPortal1 = PortalSingleton.Singleton.Portal1.GetComponentInChildren<Camera>();
-            _cameraPortal2 = PortalSingleton.Singleton.Portal2.GetComponentInChildren<Camera>();
-            _pseudoMainCamera1 = PortalSingleton.Singleton.Portal1.GetComponentInChildren<PseudoMainCamera>().gameObject;
-            _pseudoMainCamera2 = PortalSingleton.Singleton.Portal2.GetComponentInChildren<PseudoMainCamera>().gameObject;
-        }
+        private GameObject _portal;
 
-        // Update is called once per frame
+        private Camera _cameraPortal; //kamera lustra/portalu
+        private GameObject _planePortal,_pseudoMainCamera;
+        private float _frustumHeight, _distance, _frustumWidth,_lensWidth,_lensHeight;
+
+        // Start is called before the first frame update
+
+        private void Awake()
+        {
+            _portal = this.gameObject;
+            _cameraPortal = _portal.transform.GetComponentInChildren<Camera>();
+            _planePortal= _portal.transform.GetChild(0).gameObject;//samo lustro/portal
+            _pseudoMainCamera= _portal.transform.GetComponentInChildren<PseudoMainCamera>().gameObject;//objekt wskazujący pozycje kamery jeżeli lustro/portal miał działać       jedynie przez ruch kamery, jest to w pełni pustu object jedynie z transformem
+        }
+        // kod operuje bardziej na edycji soczewek kamery zamiast na jej porsuzaniu
         void FixedUpdate()
         {
-            SetCameraPosition(_cameraPortal2, PortalSingleton.Singleton.Portal1, _pseudoMainCamera2);
-            SetCameraPosition(_cameraPortal1, PortalSingleton.Singleton.Portal2, _pseudoMainCamera1);
-        }
-        private void SetCameraPosition(Camera _cameraToSet,GameObject _portal,GameObject _pseudoMainCamera)
-        {
-            _distanceX = PortalSingleton.Singleton.mainCamera.transform.position.x-_portal.transform.position.x;
-            _distanceY = PortalSingleton.Singleton.mainCamera.transform.position.y-_portal.transform.position.y;
-            _distanceZ = PortalSingleton.Singleton.mainCamera.transform.position.z- _portal.transform.position.z;
-            _cameraToSet.transform.localPosition = new Vector3(_cameraToSet.transform.localPosition.x, _cameraToSet.transform.localPosition.y, _distanceZ);
-            _pseudoMainCamera.transform.localPosition = new Vector3(_distanceX, _distanceY, _pseudoMainCamera.transform.localPosition.z);
-            _pseudoMainCamera.transform.localEulerAngles = PortalSingleton.Singleton.mainCamera.transform.eulerAngles;
-            _cameraToSet.nearClipPlane =Mathf.Abs( _distanceZ)+ _correctPrecision;
+            _distance = Vector3.Distance(_cameraPortal.transform.position, _planePortal.transform.position);
+            _frustumHeight = 2.0f * _distance * Mathf.Tan(_cameraPortal.fieldOfView * 0.5f * Mathf.Deg2Rad);
+            _frustumWidth = _frustumHeight * _cameraPortal.aspect;
+            _lensWidth = (_planePortal.transform.position.x - _pseudoMainCamera.transform.position.x) / _frustumWidth;
+            _lensHeight = (_planePortal.transform.position.y - _pseudoMainCamera.transform.position.y) / _frustumHeight;
+            _cameraPortal.lensShift = new Vector2(_lensWidth, _lensHeight);
         }
     }
    }
-
    ```
 
 3. 3D Trail Renderer
