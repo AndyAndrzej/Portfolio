@@ -92,30 +92,50 @@ Obecnie student 2 roku na Collegium Da Vinci Na kierunku Inforamtyka Spec. Proje
    {
     public class MovingLensThanFerment : MonoBehaviour
     {
-        private GameObject _portal;
+        private GameObject _portal, _mainCamera;
 
-        private Camera _cameraPortal; //kamera lustra/portalu
+        private Camera _cameraPortal, _targetCamera;
         private GameObject _planePortal,_pseudoMainCamera;
         private float _frustumHeight, _distance, _frustumWidth,_lensWidth,_lensHeight;
+        private GameObject _target,_targetPseudoCamera;
+        private float _distanceZ, _distanceX, _distanceY;
+        private float _correctPrecision = 0.1f;//for camera render just above plane of mirror/portal
 
         // Start is called before the first frame update
 
-        private void Awake()
+        private void Start()
         {
-            _portal = this.gameObject;
-            _cameraPortal = _portal.transform.GetComponentInChildren<Camera>();
-            _planePortal= _portal.transform.GetChild(0).gameObject;//samo lustro/portal
-            _pseudoMainCamera= _portal.transform.GetComponentInChildren<PseudoMainCamera>().gameObject;//objekt wskazujący pozycje kamery jeżeli lustro/portal miał działać       jedynie przez ruch kamery, jest to w pełni pustu object jedynie z transformem
+            _portal = this.gameObject;//portal//mirror main object
+            _target = _portal == PortalSingleton.Singleton.Portal1 ? _target = PortalSingleton.Singleton.Portal2 : _target = PortalSingleton.Singleton.Portal1;//target that will render img to show (texture is added manually)
+            //change above if for mirror for the same object as _portal
+            _targetCamera = _target.GetComponentInChildren<Camera>();
+            _targetPseudoCamera= _target.GetComponentInChildren<PseudoMainCamera>().gameObject;//psuedoMainCamera class is empty class
+            _mainCamera = PortalSingleton.Singleton.mainCamera;
+            _cameraPortal = _portal.transform.GetComponentInChildren<Camera>();//camera to render image from this mirror/portal
+            _planePortal= _portal.transform.GetChild(0).gameObject;//plane of mirror/portal
+            _pseudoMainCamera= _portal.transform.GetComponentInChildren<PseudoMainCamera>().gameObject;//pos of camera if was moving not by lens
         }
-        // kod operuje bardziej na edycji soczewek kamery zamiast na jej porsuzaniu
+        // mova camera by lens than by pos change (only x and y axis)
         void FixedUpdate()
         {
+            SetCameraPosition(_targetCamera, _portal, _targetPseudoCamera, _mainCamera);
             _distance = Vector3.Distance(_cameraPortal.transform.position, _planePortal.transform.position);
             _frustumHeight = 2.0f * _distance * Mathf.Tan(_cameraPortal.fieldOfView * 0.5f * Mathf.Deg2Rad);
             _frustumWidth = _frustumHeight * _cameraPortal.aspect;
             _lensWidth = (_planePortal.transform.position.x - _pseudoMainCamera.transform.position.x) / _frustumWidth;
             _lensHeight = (_planePortal.transform.position.y - _pseudoMainCamera.transform.position.y) / _frustumHeight;
             _cameraPortal.lensShift = new Vector2(_lensWidth, _lensHeight);
+        }
+        //move camera on z axis and pseudo camera rest paramets
+        private void SetCameraPosition(Camera _cameraToSet, GameObject _portal, GameObject _pseudoMainCamera,GameObject _mainCamera)
+        {
+            _distanceX = _mainCamera.transform.position.x - _portal.transform.position.x;
+            _distanceY = _mainCamera.transform.position.y - _portal.transform.position.y;
+            _distanceZ = _mainCamera.transform.position.z - _portal.transform.position.z;
+            _cameraToSet.transform.localPosition = new Vector3(_cameraToSet.transform.localPosition.x, _cameraToSet.transform.localPosition.y, _distanceZ);
+            _pseudoMainCamera.transform.localPosition = new Vector3(_distanceX, _distanceY, _pseudoMainCamera.transform.localPosition.z);
+            _pseudoMainCamera.transform.localEulerAngles = _mainCamera.transform.eulerAngles;
+            _cameraToSet.nearClipPlane = Mathf.Abs(_distanceZ) + _correctPrecision;
         }
     }
    }
