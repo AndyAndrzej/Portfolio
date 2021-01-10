@@ -77,9 +77,9 @@ Obecnie student 2 roku na Collegium Da Vinci Na kierunku Inforamtyka Spec. Proje
     }
 
     ```
-2. Camera Synchro
-   - scrypt do sunchronizacjo kamer służących np. za lustro bądz portal z kamerą gracza, kod bez komentarzy, operuje na fizycznych wlasnosciach kamery, mniej na jej poruszaniu,       (nieco zabagowana przy małych odległościach)
-   - [GitLab](https://gitlab.com/andrzejszablewski13/portal-prototype/-/blob/master/PortalExperimental/Assets/ElementsForPortalsBase/CameraSynchro.cs)
+2. Moving Lens Than Camera
+   - scrypt do sunchronizacjo kamer służących np. za lustro bądz portal z kamerą gracza, kod bez komentarzy, operuje na fizycznych wlasnosciach kamery, mniej na jej poruszaniu,       (nieco zabagowana przy małych odległościach) ale za to bez problemu przycina widok tuż przed lustrem/portalem niezależnie od kątu patrzenia
+   - [GitLab](https://gitlab.com/andrzejszablewski13/portal-prototype/-/blob/master/PortalExperimental/Assets/ElementsForPortalsBase/MovingLensThanFerment.cs)
    - Kod (z komentarzami):
    
    ```c#
