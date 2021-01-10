@@ -153,7 +153,12 @@ Obecnie student 2 roku na Collegium Da Vinci Na kierunku Inforamtyka Spec. Proje
 
     
 ##### W pythonie
-Do pokazania na razie brak
+1. Program do wyliczania pierwiastka funkcji
+   - program wyliczający pierwiastek funkcji, funkcja podana ze stringa,ograniczona liczba funkcji które można odczytać
+   - [GitLab](https://gitlab.com/andrzejszablewski13/console-programs/-/tree/master/PythonPrograms)
+2. TensorFlow
+   - moje próby z tensorflow, zwiera kilka podsatawowych tutoriali i moja próba stworzenia zewnętrznego bota do gry bulletHell (nieudana gdyż czcionka scora i health byłą wysoce       niestabilna do zewnętrznego odczytania). Kod słabo opisany ale zawiera wiele zaawansowanych elementów jak odczytywanie ekranu, objektowość i wielowątkowość
+   - [GitLab](https://gitlab.com/andrzejszablewski13/phytonscripts2)
 ##### C++
 1. Funkcja do wyliczania y z równania/funkcji. 
    - Zczytuję funkcję z jednego stringa, objektowe. Wymaga rozbudowania (nie uwwzględnia wszystkich możliwości)
