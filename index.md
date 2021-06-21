@@ -163,9 +163,13 @@ Obecnie student 2 roku na Collegium Da Vinci Na kierunku Inforamtyka Spec. Proje
 7. Pierwsza (w miare skonczona i mozliwa do pokazania) gra TRacer
    - gra o pojazdach i zabijaniu przeciwników własnym trailem (jak w tronie)
    - [GitLab](https://gitlab.com/andrzejszablewski13/gra)
-8. DoomWave
-   - obecnie rozwijana gra, typu rogue-like+doom z opcja tworzenia wlasnych broni z modulów
-   - [GitLab](https://gitlab.com/andrzejszablewski13/doomwave)
+8. The Title of the game
+   - gra z gamejama (GLTK 2021), gra logiczna
+   - [GitLab](https://gitlab.com/andrzejszablewski13/GLTKGameJam-Joined-Togehter)
+   - [itch.io](https://necrogames.itch.io/the-title-of-the-game)
+9. TRacerV2
+   - przerobiony TRacer, bez multi ale z botami, w formie wyścigu
+   - [GitLab](https://gitlab.com/andrzejszablewski13/TRacerV2)
 
     
 #### W pythonie
