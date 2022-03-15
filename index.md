@@ -29,6 +29,7 @@ public class SlopeDetector : MonoBehaviour,ICalcPhysics
     private NativeArray<RaycastCommand> _commands;
     private JobHandle _handle;
     private RaycastHit _batchedHit;
+    //inject data
     [Inject]
     private void Construct(Rigidbody rb, CharacterData data, IGroundDet groundDet)
     {
@@ -43,8 +44,10 @@ public class SlopeDetector : MonoBehaviour,ICalcPhysics
     }
     public void OnFixedUpdate()
     {
+        //do it if is ON, rigidbody accept commands and touch ground
         if(_on && !_rb.isKinematic && _groundDet.IsGrounded)
         {
+        //take results of raycast from previus frame if there are, and check if slope det
             _handle.Complete();
             _batchedHit = _results[0];
 
@@ -59,7 +62,7 @@ public class SlopeDetector : MonoBehaviour,ICalcPhysics
                 }
             }
 
-
+            //start new thread witch new raycast and send it
             _commands[0] = new RaycastCommand(_rb.transform.position,
                Vector3.down * _detectRange,
                _detectRange,int.MaxValue);
@@ -68,6 +71,7 @@ public class SlopeDetector : MonoBehaviour,ICalcPhysics
     }
     private void OnDestroy()
     {
+        //clear if destroyed
         _handle.Complete();
         _results.Dispose();
         _commands.Dispose();
