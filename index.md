@@ -11,7 +11,7 @@ Obecnie student na Collegium Da Vinci Na kierunku Inforamtyka Spec. Projektowani
 1. Detekcja nierównego terenu i korekcja poruszania na rigidbody ( z użyciem Zenjecta i Unity.Jobs)
 ```c#
 
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.Collections;
 using Unity.Jobs;
@@ -83,7 +83,7 @@ public class SlopeDetector : MonoBehaviour,ICalcPhysics
 [GitLab](https://gitlab.com/andrzejszablewski13/gra/-/blob/master/Giereczka/Assets/Scripts/MultiRoom/GameManager.cs)
 ```c#
 
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
@@ -204,7 +204,7 @@ namespace MultiSystem
 [GitLab](https://gitlab.com/andrzejszablewski13/GLTKGameJam-Joined-Togehter/-/blob/feature_analitics/Assets/_Game/Dots/Scripts/Systems/RenderSyStem.cs)
 ```c#
 
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Entities;
