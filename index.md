@@ -4,7 +4,7 @@ Imie i nazwisko: Andrzej Szablewski
 
 e-mail: andrzejszablewski13@gmail.com
 
-Obecnie student 2 roku na Collegium Da Vinci Na kierunku Inforamtyka Spec. Projektowaniu Gier
+Obecnie student na Collegium Da Vinci Na kierunku Inforamtyka Spec. Projektowaniu Gier
 ### Moje projekty
 #### W Unity/C#
 
