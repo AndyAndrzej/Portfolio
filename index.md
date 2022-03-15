@@ -9,7 +9,7 @@ Obecnie student na Collegium Da Vinci Na kierunku Inforamtyka Spec. Projektowani
 #### W Unity/C#
 
 1. Detekcja nierównego terenu i korekcja poruszania na rigidbody ( z użyciem Zenjecta i Unity.Jobs)
-2. 
+
 ```c#
 
 ﻿using System.Collections;
