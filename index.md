@@ -9,6 +9,7 @@ Obecnie student na Collegium Da Vinci Na kierunku Inforamtyka Spec. Projektowani
 #### W Unity/C#
 
 1. Detekcja nierównego terenu i korekcja poruszania na rigidbody ( z użyciem Zenjecta i Unity.Jobs)
+2. 
 ```c#
 
 ﻿using System.Collections;
@@ -81,6 +82,7 @@ public class SlopeDetector : MonoBehaviour,ICalcPhysics
 
 2.Kod GameMenagera z obsługą multika na photonie (fragment starego projektu TRacer)
 [GitLab](https://gitlab.com/andrzejszablewski13/gra/-/blob/master/Giereczka/Assets/Scripts/MultiRoom/GameManager.cs)
+
 ```c#
 
 ﻿using System.Collections;
@@ -200,8 +202,10 @@ namespace MultiSystem
     }
 }
 ```
+
 3. Customowy Renderer kostek na DOTSie
 [GitLab](https://gitlab.com/andrzejszablewski13/GLTKGameJam-Joined-Togehter/-/blob/feature_analitics/Assets/_Game/Dots/Scripts/Systems/RenderSyStem.cs)
+
 ```c#
 
 ﻿using System.Collections;
@@ -379,6 +383,7 @@ public class RenderSyStem : SystemBase
     }
 }
 ```
+
 4. Line renderer na canvas (unity)
    - Line renderer który działa na canvasie, zawiera kilka podsatawowych opcji, krótki i w miarę wydajny kod
    - [GitLab](https://gitlab.com/andrzejszablewski13/doomwave/-/blob/master/DoomW/DoomW/Assets/Scripts/Canvas/LineRendererHUD.cs)
